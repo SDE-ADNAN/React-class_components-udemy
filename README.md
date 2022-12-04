@@ -102,6 +102,7 @@ const Product = (props) => {
 ```JSX
 constructor(){
   // here the name state accessible on "this" keyword has to be named as state . This is a reserved keyword in react.
+  super();
   this.state={}
 }
 ```
@@ -111,18 +112,70 @@ constructor(){
 - for updating state in class components we use this.setState() method provided by react's component class which we extend in our class component. We pass an object to this method which will be merged with the current state.
 
 ```Jsx
-constructor(){
-  this.state={
-    counter:0
+  constructor() {
+    super();
+    this.state = {
+      showUsers: true,
+    };
   }
-}
 
-incrementCounter=()=>{
-  this.setState((counter)=>
-  return {counter:counter+1})
-}
+  toggleUsersHandler = () => {
+    this.setState((curState) => {
+      return { showUsers: !curState.showUsers };
+    });
+  };
 ```
 
 - we can also pass a function to this.setState() method which will receive the current state as an argument & will return an object which will be merged with the current state.
 
--
+- full component code
+
+```JSX
+import { Component } from "react";
+import User from "./User";
+
+import classes from "./Users.module.css";
+
+const DUMMY_USERS = [
+  { id: "u1", name: "Max" },
+  { id: "u2", name: "Manuel" },
+  { id: "u3", name: "Julie" },
+];
+
+class Users extends Component {
+  constructor() {
+    super();
+    this.state = {
+      showUsers: true,
+    };
+  }
+
+  toggleUsersHandler = () => {
+    this.setState((curState) => {
+      return { showUsers: !curState.showUsers };
+    });
+  };
+
+  render() {
+    const { showUsers } = this.state;
+
+    const usersList = showUsers && (
+      <ul>
+        {DUMMY_USERS.map((user) => (
+          <User key={user.id} name={user.name} />
+        ))}
+      </ul>
+    );
+
+    return (
+      <div className={classes.users}>
+        <button onClick={this.toggleUsersHandler.bind(this)}>
+          {showUsers ? "Hide" : "Show"} Users
+        </button>
+        {usersList}
+      </div>
+    );
+  }
+}
+export default Users;
+```
