@@ -179,3 +179,60 @@ class Users extends Component {
 }
 export default Users;
 ```
+
+---
+
+## -- Video 166 The Component LifeCycle (Class-based components only)
+
+- For handling side effects in functional components we use useEffect()
+- For handling side effects in class components we use lifecycle methods as we cannot use hooks in class-based components.
+- Below are the lifecycle methods in class components.
+
+1. **componentDidMount()**
+
+   - This method is called after a component is rendered for the first time.
+   - This is the best place to send http requests to fetch data from a server.
+   - This method is called only once in the lifecycle of a component.
+   - this is equivalent to useEffect() with empty dependency array.
+
+   ```JSX
+   componentDidMount(){
+       // send http request
+   }
+   useEffect(()=>{
+       // send http request
+   },[])
+   ```
+
+2. **componentDidUpdate()**
+
+   - This method is called after a component is updated.
+   - This is the best place to send http requests to fetch data from a server.
+   - This method is called every time a component is updated.
+   - this is equivalent to useEffect() with dependency array.
+
+   ```JSX
+   componentDidUpdate(){
+       // send http request
+   }
+   useEffect(()=>{
+       // send http request
+   },[dependencyArray])
+   ```
+
+3. **componentWillUnmount()**
+   - This method is called before a component is removed from the DOM.
+   - This is the best place to clean up side effects.
+   - This method is called only once in the lifecycle of a component.
+   - this is equivalent to useEffect() with empty dependency array.
+   ```JSX
+   componentWillUnmount(){
+       // clean up side effects
+   }
+   useEffect(()=>{
+     // code to run on component unmount
+       return()=>{
+           // clean up side effects
+       }
+   },[])
+   ```
