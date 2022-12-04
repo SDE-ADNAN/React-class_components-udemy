@@ -346,3 +346,9 @@ class ComponentName extends Component{
 ```
 
 ---
+
+## -- Video 169 Class-based components summary
+
+- Just did summary in this videp.
+
+---
