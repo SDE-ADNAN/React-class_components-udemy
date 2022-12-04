@@ -361,7 +361,14 @@ class ComponentName extends Component{
 
 - Here we are going to create an error boundary component that wraps the Users component.
 
+- error boundaries are only available in class based components.
+
+- error boundaries are not available in functional components.
+
+- error boundaries are very helpful in production mode where we can handle an error thrown by a component and in case we have an error we can show a fallback UI. like something went wrong.
+
 - We can create an error boundary component by extending the React.Component class and implementing the lifecycle method componentDidCatch().
+
 - The componentDidCatch() method takes two arguments: the error that occurred and an info object that contains information about the component that threw the error.
 
 ```JSX
