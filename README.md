@@ -54,7 +54,7 @@ components can also be defined as JS classes where a render() method defines the
 
 class component
 
-```javascript
+```JSX
 import React, { Component } from "react";
 
 class Product extends Component {
