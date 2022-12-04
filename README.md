@@ -87,3 +87,6 @@ const Product = (props) => {
 ```
 
 - we must use the extends component keyword to create a class component which allows us to access props and state.
+- class components can work along with functional components. theres no restriction.
+- a class component can have a function component inside render method.
+- a functional component can have a class component inside jsx return statement.
