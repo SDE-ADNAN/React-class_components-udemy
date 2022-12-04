@@ -352,3 +352,34 @@ class ComponentName extends Component{
 - Just did summary in this videp.
 
 ---
+
+## -- Video 170 Error Boundaries
+
+- Error boundaries are components that wrap other components and catch any errors that might occur in the wrapped components.
+
+- Error boundaries are useful for catching errors in components that are not in our control.
+
+- Here we are going to create an error boundary component that wraps the Users component.
+
+- We can create an error boundary component by extending the React.Component class and implementing the lifecycle method componentDidCatch().
+- The componentDidCatch() method takes two arguments: the error that occurred and an info object that contains information about the component that threw the error.
+
+```JSX
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  componentDidCatch(error, info) {
+    this.setState({ hasError: true });
+  }
+  render() {
+    if (this.state.hasError) {
+      return <h1>Something went wrong!</h1>;
+    }
+    return this.props.children;
+  }
+}
+```
+
+---
