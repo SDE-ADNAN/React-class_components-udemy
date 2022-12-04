@@ -90,3 +90,39 @@ const Product = (props) => {
 - class components can work along with functional components. theres no restriction.
 - a class component can have a function component inside render method.
 - a functional component can have a class component inside jsx return statement.
+
+---
+
+## -- Video 165 Woking with State and Events in Class Components
+
+- For managing state in class components we use/take helpof js constructor method. Which is the most first method called whenever react encounters that your class is used as a component.
+
+- constructor method is a special method which is called whenever a new instance of a class is created.
+
+```JSX
+constructor(){
+  // here the name state accessible on "this" keyword has to be named as state . This is a reserved keyword in react.
+  this.state={}
+}
+```
+
+- In reacts class components state is always an object & is initialized like above inside a class component at the very begining.
+
+- for updating state in class components we use this.setState() method provided by react's component class which we extend in our class component. We pass an object to this method which will be merged with the current state.
+
+```Jsx
+constructor(){
+  this.state={
+    counter:0
+  }
+}
+
+incrementCounter=()=>{
+  this.setState((counter)=>
+  return {counter:counter+1})
+}
+```
+
+- we can also pass a function to this.setState() method which will receive the current state as an argument & will return an object which will be merged with the current state.
+
+-
