@@ -325,3 +325,24 @@ class UserFinder extends Component {
 }
 export default UserFinder;
 ```
+
+---
+
+## -- Video 168 Class-based components and context
+
+- in class based components we can use the consumer wrapper to access the context data but we must provide it as used to provide in functional components.
+
+- in class based components we cannot use two contexts at the same time in one component But only one via
+
+```JSX
+class ComponentName extends Component{
+    static contextType = AuthContext;
+    render(){
+        return(
+            <div>{this.context}</div>
+        )
+    }
+}
+```
+
+---
